@@ -1,0 +1,22 @@
+version = 1
+requires-python = ">=3.12"
+
+[[package]]
+name = "kojo-fan-art"
+version = "0.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f8/94/0deaa29cebd133d3dae494570fbbe388154c2bfa9a1a9a2f9e703d900c3b/kojo-fan-art-0.1.1.tar.gz", hash = "sha256:32539cffff9bce778103050cf229c6699f7c72a7a6ee75e3699f2fe452ab8ffb", size = 5761 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/3b/fc7e152c430466199532fc23e974640db512243af27202db4628396f7919/kojo_fan_art-0.1.1-py3-none-any.whl", hash = "sha256:ce74a9573f281d6bca04d88f0fa24c742c5cc6946a3ae26d332465dedd751833", size = 6191 },
+]
+
+[[package]]
+name = "mylib"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "kojo-fan-art" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "kojo-fan-art", specifier = ">=0.1.1" }]
