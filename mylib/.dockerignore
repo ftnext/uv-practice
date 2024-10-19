@@ -1,4 +1,6 @@
+.DS_Store
 .venv
 .python-version
 .ruff_cache
 dist
+**/__pycache__
