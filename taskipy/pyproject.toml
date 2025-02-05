@@ -14,3 +14,10 @@ dev = [
     "pytest>=8.3.4",
     "taskipy>=1.14.1",
 ]
+
+[tool.taskipy.tasks]
+fmt = "task ruff_format && task ruff_fix"
+ruff_format = "uvx ruff format"
+ruff_fix = "uvx ruff check --fix --extend-select I"
+test = "pytest -v"
+pre_test = "task fmt"
