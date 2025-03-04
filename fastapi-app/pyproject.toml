@@ -3,4 +3,7 @@ name = "fastapi-app"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11.8"
-dependencies = []
+dependencies = [
+    "fastapi[standard]>=0.115.11",
+    "kojo-fan-art>=0.1.1",
+]
