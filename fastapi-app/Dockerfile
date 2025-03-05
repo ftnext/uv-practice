@@ -14,4 +14,4 @@ COPY --from=builder /app/.venv/bin/uvicorn /app/.venv/bin/uvicorn
 COPY --from=builder /app/.venv/lib/python3.12/site-packages /app/.venv/lib/python3.12/site-packages
 COPY main.py .
 EXPOSE 8000
-CMD ["/app/.venv/bin/uvicorn", "main:app"]
+CMD ["/app/.venv/bin/uvicorn", "main:app", "--host", "0.0.0.0"]
