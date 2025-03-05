@@ -8,9 +8,10 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
 
 FROM python:3.12-slim-bookworm
-COPY --from=builder /app/.venv/bin/uvicorn /usr/local/bin/uvicorn
-COPY --from=builder /app/.venv/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 WORKDIR /app
+RUN python -m venv .venv --without-pip
+COPY --from=builder /app/.venv/bin/uvicorn /app/.venv/bin/uvicorn
+COPY --from=builder /app/.venv/lib/python3.12/site-packages /app/.venv/lib/python3.12/site-packages
 COPY main.py .
 EXPOSE 8000
-CMD ["uvicorn", "main:app"]
+CMD ["/app/.venv/bin/uvicorn", "main:app"]
