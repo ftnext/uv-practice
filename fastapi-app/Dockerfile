@@ -9,9 +9,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 FROM python:3.12-slim-bookworm
 WORKDIR /app
-RUN python -m venv .venv --without-pip
-COPY --from=builder /app/.venv/bin/uvicorn /app/.venv/bin/uvicorn
-COPY --from=builder /app/.venv/lib/python3.12/site-packages /app/.venv/lib/python3.12/site-packages
+COPY --from=builder /app/.venv/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY main.py .
 EXPOSE 8000
-CMD ["/app/.venv/bin/uvicorn", "main:app", "--host", "0.0.0.0"]
+CMD ["python", "main.py"]
