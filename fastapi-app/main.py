@@ -8,9 +8,3 @@ app = FastAPI()
 @app.get("/")
 async def main():
     return _main(characters)
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8000)
